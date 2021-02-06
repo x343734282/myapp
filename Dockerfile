@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:14-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -15,5 +15,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080,4430
+EXPOSE 4430
 CMD [ "node", "./bin/" ]
