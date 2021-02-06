@@ -17,7 +17,6 @@ pipeline {
 		
 		stage('run') {
             steps {
-				sh 'docker ps -a'
                 sh 'npm run start'
             }
         }
