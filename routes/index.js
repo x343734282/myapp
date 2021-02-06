@@ -32,11 +32,11 @@ router.get('/', function(req, res, next) {
 	//     });
 	// req.headers["user-agent"];
 
-	writer.pipe(fs.createWriteStream('out.csv'));
-	for (var i = 1000 - 1; i >= 0; i--) {
-		writer.write({ hello: i + "" });
-	}
-	writer.end();
+	// writer.pipe(fs.createWriteStream('out.csv'));
+	// for (var i = 1000 - 1; i >= 0; i--) {
+	// 	writer.write({ hello: i + "" });
+	// }
+	// writer.end();
 	res.render('index', { title: 'Express', agent: req.headers["user-agent"] });
 });
 

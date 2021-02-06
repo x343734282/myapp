@@ -14,6 +14,7 @@ router.options('/item',function(req, res, next){
 	console.log('options');
 	res.append('Access-Control-Allow-Origin','http://localhost:8110');
 	res.append('Access-Control-Allow-Headers','X-PINGOTHER, Content-Type');
+	res.append('etag',"test");
 	res.send();
 });
 

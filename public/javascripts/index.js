@@ -6,23 +6,45 @@
  */
 
 function load() {
-	wx.config({
-		debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-		appId: 'wxd26bcfd571d534ed', // 必填，公众号的唯一标识
-		timestamp: 1603950970330, // 必填，生成签名的时间戳
-		nonceStr: 'abcefg', // 必填，生成签名的随机串
-		signature: 'f1b14319bb728f1103df910ee5513b3abccbfd95',// 必填，签名
-		jsApiList: ['chooseImage', 'uploadImage'] // 必填，需要使用的JS接口列表
-	});
+	// wx.config({
+	// 	debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	// 	appId: 'wxd26bcfd571d534ed', // 必填，公众号的唯一标识
+	// 	timestamp: 1603950970330, // 必填，生成签名的时间戳
+	// 	nonceStr: 'abcefg', // 必填，生成签名的随机串
+	// 	signature: 'f1b14319bb728f1103df910ee5513b3abccbfd95',// 必填，签名
+	// 	jsApiList: ['chooseImage', 'uploadImage'] // 必填，需要使用的JS接口列表
+	// });
 
-	wx.ready(function() {
-		// chooseImage();
-		document.querySelector('#btnCapture').addEventListener('click', chooseImage);
-	});
+	// wx.ready(function() {
+	// 	// chooseImage();
+	// 	// document.querySelector('#btnCapture').addEventListener('click', chooseImage);
+		document.querySelector('#btnCapture').addEventListener('click', ajax);
+	// });
 
-	wx.error(function(res) {
-		document.querySelector('#error').innerHTML = JSON.stringify(res);
-	});
+	// wx.error(function(res) {
+	// 	document.querySelector('#error').innerHTML = JSON.stringify(res);
+	// });
+}
+
+function ajax() {
+	var xhr = new XMLHttpRequest();
+
+	xhr.open('get', '/users/item');
+
+	xhr.onreadystatechange = function(e) {
+		if (this.readyState == 4 && this.status == 200) {
+			var headers = xhr.getAllResponseHeaders();
+			console.log(JSON.stringify(headers));
+			// var binStr = this.responseText;
+			// for (var i = 0, len = binStr.length; i < len; ++i) {
+			//   var c = binStr.charCodeAt(i);
+			//   //String.fromCharCode(c & 0xff);
+			//   var byte = c & 0xff;  // byte at offset i
+			// }
+		}
+	}
+
+	xhr.send();
 }
 
 function chooseImage(argument) {
