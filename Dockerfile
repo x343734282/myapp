@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 4430
-CMD [ "node", "./bin/" ]
+CMD [ "node", "./bin/www" ]
