@@ -20,5 +20,11 @@ pipeline {
                 sh 'npm run start'
             }
         }
+		
+		stage('end') {
+            steps {
+                echo  'running...'
+            }
+        }
     }
 }
