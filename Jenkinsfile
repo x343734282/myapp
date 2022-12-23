@@ -1,5 +1,6 @@
 /* groovylint-disable-next-line CompileStatic */
 node {
+    git '/tmp/'
     def node = docker.image('node:14-alpine')
     // .inside {
     //             sh 'node --version'
