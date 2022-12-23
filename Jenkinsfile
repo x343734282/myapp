@@ -1,5 +1,6 @@
 /* groovylint-disable-next-line CompileStatic */
 node {
+    System.setProperty('hudson.plugins.git.GitSCM.ALLOW_LOCAL_CHECKOUT', true)
     git '/tmp/'
     def node = docker.image('node:14-alpine')
     // .inside {
