@@ -1,7 +1,7 @@
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
-    node {
+
         stages {
             stage('build image') {
                 docker.image('node:14-alpine').inside {
@@ -27,5 +27,4 @@ pipeline {
                 }
             }
         }
-    }
 }
