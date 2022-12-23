@@ -9,22 +9,22 @@ pipeline {
                 }
             }
 
-            stage('install') {
-                steps {
-                // sh 'npm install'
-                }
-            }
+            // stage('install') {
+            //     steps {
+            //     // sh 'npm install'
+            //     }
+            // }
 
-            stage('run') {
-                steps {
-                // sh 'npm run start'
-                }
-            }
+            // stage('run') {
+            //     steps {
+            //     // sh 'npm run start'
+            //     }
+            // }
 
-            stage('end') {
-                steps {
-                // echo  'running...'
-                }
-            }
+            // stage('end') {
+            //     steps {
+            //     // echo  'running...'
+            //     }
+            // }
         }
 }
