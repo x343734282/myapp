@@ -4,8 +4,10 @@ pipeline {
 
         stages {
             stage('build image') {
+                steps {
                 docker.image('node:14-alpine').inside {
                     sh 'node --version'
+                }
                 }
             }
 
@@ -21,10 +23,10 @@ pipeline {
             //     }
             // }
 
-            // stage('end') {
-            //     steps {
-            //     // echo  'running...'
-            //     }
-            // }
+        // stage('end') {
+        //     steps {
+        //     // echo  'running...'
+        //     }
+        // }
         }
 }
