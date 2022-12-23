@@ -1,29 +1,30 @@
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent {
-        docker { image 'node' }
+        none
     }
-    stages {
-        stage('verify') {
-            steps {
+    node {
+        stage('build image') {
+            docker.image('node:14-alpine').inside {
                 sh 'node --version'
             }
         }
-		
-		stage('install') {
+
+        stage('install') {
             steps {
-                sh 'npm install'
+                // sh 'npm install'
             }
         }
-		
-		stage('run') {
+
+        stage('run') {
             steps {
-                sh 'npm run start'
+                // sh 'npm run start'
             }
         }
-		
-		stage('end') {
+
+        stage('end') {
             steps {
-                echo  'running...'
+                // echo  'running...'
             }
         }
     }
