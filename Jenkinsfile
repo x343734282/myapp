@@ -2,27 +2,29 @@
 pipeline {
     agent any
     node {
-        stage('build image') {
-            docker.image('node:14-alpine').inside {
-                sh 'node --version'
+        stages {
+            stage('build image') {
+                docker.image('node:14-alpine').inside {
+                    sh 'node --version'
+                }
             }
-        }
 
-        stage('install') {
-            steps {
+            stage('install') {
+                steps {
                 // sh 'npm install'
+                }
             }
-        }
 
-        stage('run') {
-            steps {
+            stage('run') {
+                steps {
                 // sh 'npm run start'
+                }
             }
-        }
 
-        stage('end') {
-            steps {
+            stage('end') {
+                steps {
                 // echo  'running...'
+                }
             }
         }
     }
