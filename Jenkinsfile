@@ -1,5 +1,5 @@
 /* groovylint-disable-next-line CompileStatic */
-node {
+node('docker-agent') {
     // git '/tmp/'
     checkout scm
         docker.withServer('tcp://192.168.1.254:2375') {
