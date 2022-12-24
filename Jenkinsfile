@@ -1,7 +1,7 @@
 /* groovylint-disable-next-line CompileStatic */
-node {
-    // git '/tmp/'
-    docker.withServer('tcp://192.168.1.254:2376') {
+// node {
+// git '/tmp/'
+docker.withServer('tcp://192.168.1.254:2376') {
         // docker.image('httpd').withRun('-p 8080:80') { c ->
         //     sh "curl -i http://${hostIp(c)}:8080/"
         // }
@@ -13,7 +13,7 @@ node {
             // The app .war and Dockerfile are now available in the workspace. See below.
             }
         }
-    }
+}
 
             // stage('install') {
             //     steps {
@@ -32,4 +32,4 @@ node {
 //     // echo  'running...'
 //     }
 // }
-}
+// }
