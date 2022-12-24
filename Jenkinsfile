@@ -2,7 +2,6 @@
 node {
     // git '/tmp/'
     checkout scm
-    docker.withTool('docker-agent') {
         docker.withServer('tcp://192.168.1.254:2375') {
         // docker.image('httpd').withRun('-p 8080:80') { c ->
         //     sh "curl -i http://${hostIp(c)}:8080/"
@@ -16,7 +15,6 @@ node {
                 }
             }
         }
-    }
 
             // stage('install') {
             //     steps {
