@@ -1,7 +1,7 @@
 /* groovylint-disable-next-line CompileStatic */
 node {
     // git '/tmp/'
-    docker.withServer('tcp://192.168.1.254:2375') {
+    docker.withServer('tcp://192.168.1.254:2376') {
         // docker.image('httpd').withRun('-p 8080:80') { c ->
         //     sh "curl -i http://${hostIp(c)}:8080/"
         // }
