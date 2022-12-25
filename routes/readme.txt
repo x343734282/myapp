@@ -1,0 +1,2 @@
+docker run -d -p 8111:80 -e REGISTRY_URL=http://192.168.1.254:5000 -e NGINX_PROXY_PASS_URL=http://192.168.1.254:5000 -e NGINX_PROXY_PASS_HEADER_*=* --restart=always
+ —name= docker_registry_ui joxit/docker-registry-ui
