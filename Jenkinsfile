@@ -23,6 +23,7 @@ node('docker-agent') {
 
                     stage('clear') {
                         sh "docker image rm ${image.id} -f"
+                        sh "docker image rm 192.168.1.254:5000/${image.id} -f"
                     }
                 }
         }
