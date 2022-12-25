@@ -12,13 +12,13 @@ node('docker-agent') {
                 // def customImage = docker.build("my-image:${env.BUILD_ID}")
                 def image
                 stage('build') {
-                    image = docker.build("myapp:${env.BUILD_ID}")
+                    image = docker.build('myapp')
                     echo "image id is ${image.id}"
                 }
 
-                docker.withRegistry('http://192.168.1.254:5000') {
+                docker.withRegistry('http://192.168.1.254:5000/v2') {
                     stage('push') {
-                        image.push()
+                        image.push("${env.BUILD_ID}")
                     }
                 }
         }
