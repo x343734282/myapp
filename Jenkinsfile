@@ -20,24 +20,10 @@ node('docker-agent') {
                     stage('push') {
                         image.push("${env.BUILD_ID}")
                     }
+
+                    stage('clear') {
+                        sh "docker image rm ${image.id} -f"
+                    }
                 }
         }
-
-            // stage('install') {
-            //     steps {
-            //     // sh 'npm install'
-            //     }
-            // }
-
-            // stage('run') {
-            //     steps {
-            //     // sh 'npm run start'
-            //     }
-            // }
-
-// stage('end') {
-//     steps {
-//     // echo  'running...'
-//     }
-// }
 }
