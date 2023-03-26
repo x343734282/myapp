@@ -1,5 +1,5 @@
 /* groovylint-disable-next-line CompileStatic */
-node{
+node('default'){
             checkout scm
             stage('SonarQube') {
 //                     def scannerHome = tool 'SonarQube Scanner 4.8.0.2856';
