@@ -1,5 +1,22 @@
 /* groovylint-disable-next-line CompileStatic */
-node('docker-agent1') {
+node('Built-In Node'){
+            stage('SonarQube') {
+                    def scannerHome = tool 'SonarQube Scanner 4.8.0.2856';
+                    withSonarQubeEnv() { // If you have configured more than one global server connection, you can specify its name
+                      sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                 }
+                 stage("Quality Gate") {
+                    steps {
+                        timeout(time: 1, unit: 'HOURS') {
+                            // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+                            // true = set pipeline to UNSTABLE, false = don't
+                            waitForQualityGate abortPipeline: true
+                        }
+                    }
+                }
+}
+node('docker-agent') {
     checkout scm
         
         docker.withServer('tcp://192.168.1.254:2375') {
