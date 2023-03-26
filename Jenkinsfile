@@ -1,6 +1,12 @@
 /* groovylint-disable-next-line CompileStatic */
 node('docker-agent') {
     checkout scm
+        stage('SonarQube') {
+        def scannerHome = tool 'SonarScanner 4.0';
+        withSonarQubeEnv() { // If you have configured more than one global server connection, you can specify its name
+          sh "${scannerHome}/bin/sonar-scanner"
+        }
+      }
         docker.withServer('tcp://192.168.1.254:2375') {
                 // def node = docker.image('node:14-alpine')
                 // stage('build image') {
