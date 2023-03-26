@@ -1,5 +1,6 @@
 /* groovylint-disable-next-line CompileStatic */
-node('Built-In Node'){
+node{
+            checkout scm
             stage('SonarQube') {
                     def scannerHome = tool 'SonarQube Scanner 4.8.0.2856';
                     withSonarQubeEnv() { // If you have configured more than one global server connection, you can specify its name
