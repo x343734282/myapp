@@ -2,9 +2,9 @@
 node('default'){
             checkout scm
             stage('SonarQube') {
-//                     def scannerHome = tool 'SonarQube Scanner 4.8.0.2856';
+                    def scannerHome = tool 'sonar';
                     withSonarQubeEnv('sonarQube') { // If you have configured more than one global server connection, you can specify its name
-                      sh "/bin/sonar-scanner"
+                                sh "${scannerHome}/bin/sonar-scanner"
                     }
                  }
                  stage("Quality Gate") {
