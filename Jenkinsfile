@@ -4,7 +4,7 @@ node('default'){
             stage('SonarQube') {
                     def scannerHome = tool 'sonar';
                     withSonarQubeEnv('sonarQube') { // If you have configured more than one global server connection, you can specify its name
-                                sh "${scannerHome}/bin/sonar-scanner -Dsonar.branch.name=${env.BRANCH_NAME}"
+                                sh "${scannerHome}/bin/sonar-scanner"
                     }
                  }
                 
